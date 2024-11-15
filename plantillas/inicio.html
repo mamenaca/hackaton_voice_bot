@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>VoiceBot Cobranza </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos/principal.css') }}">
+</head>
+<body>
+    <header class="cabecera">
+        <div class="logo">DeepL Caldas</div>
+        <div class="subtitulo">HackDay AI</div>
+    </header>
+
+    <div class="contenedor-principal">
+        <!-- Sección de Información del Cliente -->
+        <div class="tarjeta">
+            <h2 class="titulo-tarjeta">Información del Cliente</h2>
+            <div class="info-cliente">
+                <div class="form-grupo">
+                    <label for="selectorCliente">Seleccionar Cliente:</label>
+                    <select id="selectorCliente" class="control-formulario">
+                        <option value="">Seleccione un cliente...</option>
+                        <option value="1">Luis Guillermo Pardo</option>
+                        <option value="2">María Rodríguez</option>
+                        <option value="3">Carlos Ramírez</option>
+                    </select>
+                </div>
+                <div class="detalles-cliente">
+                    <div class="item-info">
+                        <span class="etiqueta">Nombre:</span>
+                        <span id="nombreCliente">-</span>
+                    </div>
+                    <div class="item-info">
+                        <span class="etiqueta">Tipología:</span>
+                        <span id="tipologiaCliente">-</span>
+                    </div>
+                    <div class="item-info">
+                        <span class="etiqueta">Deuda:</span>
+                        <span id="deudaCliente">-</span>
+                    </div>
+                    <div id="infoAdicional" class="info-adicional">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de Interacción -->
+        <div class="tarjeta">
+            <h2 class="titulo-tarjeta">Interacción con el Cliente</h2>
+            <div class="configuracion-inicial">
+                <div class="selector-microfono">
+                    <label for="selectorDispositivo">1. Seleccionar Micrófono:</label>
+                    <select id="selectorDispositivo" class="control-formulario">
+                        <option value="">Seleccione un micrófono...</option>
+                    </select>
+                </div>
+                
+                <div class="estado-llamada">
+                    <strong>Estado:</strong> 
+                    <span id="estadoLlamada" class="badge">Seleccione un cliente y micrófono</span>
+                </div>
+            </div>
+
+            <div id="areaTranscripcion" class="area-transcripcion">
+                <!-- Las transcripciones aparecerán aquí -->
+            </div>
+
+            <div class="panel-control">
+                <div class="instrucciones">
+                    <p>Pasos:</p>
+                    <ol>
+                        <li>👆 Inicie la llamada</li>
+                        <li>🎙️ Active la grabación para hablar</li>
+                        <li>⏹️ Detenga la grabación al terminar</li>
+                        <li>❌ Finalice la llamada cuando termine</li>
+                    </ol>
+                </div>
+
+                <div class="grupo-botones">
+                    <button id="btnLlamada" class="boton boton-primario" disabled>
+                        📞 Iniciar Llamada
+                    </button>
+                    <button id="btnGrabacion" class="boton boton-secundario" disabled>
+                        🎙️ Iniciar Grabación
+                    </button>
+                    <button id="btnFinalizar" class="boton boton-peligro" disabled>
+                        ❌ Finalizar Llamada
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de Análisis -->
+        <div class="tarjeta">
+            <h2 class="titulo-tarjeta">Resultados del Análisis</h2>
+            <div class="analisis-resultados">
+                <div class="tarjeta-analisis">
+                    <h3>Sentimientos y Emociones</h3>
+                    <div id="emociones">
+                        Esperando inicio de llamada...
+                    </div>
+                </div>
+                <div class="tarjeta-analisis">
+                    <h3>Nivel de Éxito</h3>
+                    <div id="exito">
+                        Esperando inicio de llamada...
+                    </div>
+                </div>
+                <div class="tarjeta-analisis">
+                    <h3>Costos Asociados</h3>
+                    <div id="costos">
+                        $0.00
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/funciones.js') }}"></script>
+</body>
+</html>
